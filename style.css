@@ -1,0 +1,402 @@
+/* ============================================
+   Vaultline — design tokens
+   ============================================ */
+:root {
+  --ink-900: #10131a;
+  --ink-800: #171b24;
+  --ink-700: #1f2430;
+  --line: #2a3040;
+  --paper: #eeece4;
+  --paper-dim: #b9b7ae;
+  --teal: #5eead4;
+  --teal-dim: #2d6b62;
+  --amber: #f2b84b;
+  --red: #f2735f;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  src: local('Georgia');
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink-900);
+  color: var(--paper);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+.stage {
+  display: grid;
+  grid-template-columns: minmax(340px, 42%) 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- Brand / left panel ---------- */
+.brand-panel {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(94, 234, 212, 0.10), transparent 45%),
+    var(--ink-800);
+  border-right: 1px solid var(--line);
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--teal);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.brand-copy { max-width: 380px; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 14px;
+}
+
+.brand-copy h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 38px;
+  line-height: 1.12;
+  margin: 0 0 16px;
+  color: var(--paper);
+}
+
+.brand-copy .sub {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--paper-dim);
+  margin: 0;
+}
+
+.footnote {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: #666c7d;
+  margin: 0;
+}
+
+/* Signature element: the keycard */
+.keycard {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 16 / 9.4;
+  border-radius: 16px;
+  background: linear-gradient(155deg, #232a38 0%, #171b24 60%, #10131a 100%);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 40px -20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.03);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.keycard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(120deg, transparent 40%, rgba(94,234,212,0.06) 50%, transparent 60%);
+  pointer-events: none;
+}
+
+.keycard.is-active {
+  border-color: var(--teal-dim);
+  box-shadow: 0 20px 40px -16px rgba(94,234,212,0.18), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.keycard-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.keycard-row--bottom {
+  justify-content: space-between;
+}
+
+.chip {
+  width: 30px;
+  height: 22px;
+  border-radius: 4px;
+  background: linear-gradient(155deg, #cbb774, #8a7a3f);
+}
+
+.keycard-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--paper-dim);
+}
+
+.keycard-number {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  letter-spacing: 0.12em;
+  color: var(--paper);
+}
+
+.keycard-name {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--paper-dim);
+}
+
+.keycard-status {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  transition: color 0.3s ease;
+}
+
+.keycard-status.unlocked {
+  color: var(--teal);
+}
+
+/* ---------- Form / right panel ---------- */
+.form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.form-wrap {
+  width: 100%;
+  max-width: 380px;
+}
+
+.form-head h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 30px;
+  margin: 0 0 6px;
+  color: var(--paper);
+}
+
+.form-head p {
+  margin: 0 0 28px;
+  color: var(--paper-dim);
+  font-size: 14.5px;
+}
+
+/* Banner (top-level form message) */
+.banner {
+  font-size: 13.5px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--line);
+  background: var(--ink-700);
+  color: var(--paper-dim);
+}
+.banner.success { border-color: var(--teal-dim); color: var(--teal); background: rgba(94,234,212,0.06); }
+.banner.error { border-color: #6b3230; color: var(--red); background: rgba(242,115,95,0.07); }
+
+/* Fields */
+.field { margin-bottom: 18px; }
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--paper-dim);
+  margin-bottom: 7px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  background: var(--ink-700);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14.5px;
+  color: var(--paper);
+  font-family: var(--font-body);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+input::placeholder { color: #5c6376; }
+
+input:focus {
+  outline: none;
+  border-color: var(--teal-dim);
+  background: #1c212c;
+}
+
+input:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+}
+
+.field.has-error input {
+  border-color: var(--red);
+}
+
+.error-msg {
+  display: block;
+  min-height: 16px;
+  font-size: 12px;
+  color: var(--red);
+  margin-top: 6px;
+}
+
+.input-with-action {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-action input { padding-right: 64px; }
+
+.ghost-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--teal);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+.ghost-toggle:hover { color: #8ff2e2; }
+
+/* Password strength */
+.strength-meter {
+  display: flex;
+  gap: 5px;
+  margin-top: 9px;
+}
+.strength-meter span {
+  height: 4px;
+  flex: 1;
+  border-radius: 2px;
+  background: var(--line);
+  transition: background 0.25s ease;
+}
+.strength-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  margin-top: 6px;
+  color: var(--paper-dim);
+  min-height: 14px;
+}
+
+/* Checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13.5px;
+  color: var(--paper-dim);
+  cursor: pointer;
+  margin: 0;
+}
+.checkbox input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+.checkbox--terms { margin: 4px 0 2px; }
+
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.link-quiet {
+  font-size: 13px;
+  color: var(--paper-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.link-quiet:hover { color: var(--teal); border-color: var(--teal-dim); }
+
+/* Primary button */
+.btn-primary {
+  width: 100%;
+  background: var(--teal);
+  color: var(--ink-900);
+  border: none;
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 14.5px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  margin-top: 6px;
+  transition: transform 0.15s ease, background 0.2s ease, opacity 0.2s ease;
+}
+.btn-primary:hover { background: #7ff0dc; }
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary:disabled { opacity: 0.6; cursor: default; transform: none; }
+
+.switch-line {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--paper-dim);
+  margin-top: 22px;
+}
+.switch-line a { color: var(--teal); text-decoration: none; }
+.switch-line a:hover { text-decoration: underline; }
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 860px) {
+  .stage { grid-template-columns: 1fr; }
+  .brand-panel {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding: 32px 28px;
+    gap: 28px;
+  }
+  .brand-copy h1 { font-size: 28px; }
+  .keycard { max-width: 100%; }
+  .form-panel { padding: 32px 20px 60px; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

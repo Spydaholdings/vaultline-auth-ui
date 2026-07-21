@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — Vaultline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stage">
+
+  <!-- Left identity panel -->
+  <aside class="brand-panel">
+    <div class="brand-mark">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <rect x="1" y="10" width="32" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+        <path d="M8 10V7a9 9 0 0 1 18 0v3" stroke="currentColor" stroke-width="2"/>
+        <circle cx="17" cy="19" r="2.4" fill="currentColor"/>
+        <path d="M17 21.4V25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Vaultline</span>
+    </div>
+
+    <div class="brand-copy">
+      <p class="eyebrow">Access, accounted for</p>
+      <h1>Every session starts<br>with a clean key.</h1>
+      <p class="sub">Your credentials are hashed client-side before they ever touch storage — nothing sits around in plain text, even in this demo.</p>
+    </div>
+
+    <div class="keycard" id="keycard" aria-hidden="true">
+      <div class="keycard-row">
+        <span class="chip"></span>
+        <span class="keycard-label">MEMBER ACCESS</span>
+      </div>
+      <div class="keycard-number">•••• •••• •••• 2291</div>
+      <div class="keycard-row keycard-row--bottom">
+        <span class="keycard-name">SIGNED IN AS GUEST</span>
+        <span class="keycard-status" id="keycardStatus">LOCKED</span>
+      </div>
+    </div>
+
+    <p class="footnote">No server. No trackers. Your data stays in this browser.</p>
+  </aside>
+
+  <!-- Right form panel -->
+  <main class="form-panel">
+    <div class="form-wrap">
+
+      <div class="form-head">
+        <h2>Welcome back</h2>
+        <p>Sign in to continue to your account.</p>
+      </div>
+
+      <div class="banner" id="banner" role="alert" hidden></div>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          <span class="error-msg" id="emailError"></span>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="input-with-action">
+            <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+            <button type="button" class="ghost-toggle" data-toggle="password" aria-label="Show password">Show</button>
+          </div>
+          <span class="error-msg" id="passwordError"></span>
+        </div>
+
+        <div class="field-row">
+          <label class="checkbox">
+            <input type="checkbox" id="remember" name="remember">
+            <span>Remember this device</span>
+          </label>
+          <a class="link-quiet" href="#" id="forgotLink">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary" id="loginSubmit">
+          <span class="btn-label">Sign in</span>
+        </button>
+      </form>
+
+      <p class="switch-line">Don't have an account? <a href="register.html">Create one</a></p>
+    </div>
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

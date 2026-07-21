@@ -2,7 +2,7 @@
 
 A dark, "keycard"-themed login and registration interface built with plain HTML, CSS, and JavaScript. No frameworks, no build step, no backend required to run it.
 
-**[Live demo](https://your-username.github.io/vaultline-auth-ui/)**
+**[Live demo](https://spydaholdings.github.io/vaultline-auth-ui/)**
 
 ## Features
 - Login and registration forms in a single-page toggle view
@@ -16,7 +16,7 @@ A dark, "keycard"-themed login and registration interface built with plain HTML,
 Clone the repo and open the file in a browser:
 
 \`\`\`bash
-git clone https://github.com/your-username/vaultline-auth-ui.git
+git clone https://github.com/Spydaholdings/vaultline-auth-ui.git
 cd vaultline-auth-ui
 open vaultline-single-file.html   # or just double-click it
 \`\`\`
